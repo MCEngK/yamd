@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="yamd-MCEngK", # Replace with your own username
+    name="yamd-MCEngK",  # Replace with your own username
     version="0.0.1",
     author="MCEngK",
     author_email="MCEngK@example.com",
@@ -18,5 +18,5 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.4',
+    python_requires=">=3.4",
 )
