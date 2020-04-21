@@ -6,7 +6,7 @@ from threading import RLock
 import struct
 from enum import Enum
 
-from yamd.utils import _, retry
+from .__utils import _, retry
 
 
 class PacketType(Enum):
