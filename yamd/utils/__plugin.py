@@ -27,6 +27,7 @@ class Plugin(object):
     AUTHOR = None
     CONTACT = None
     VERSION = "0.0.0"
+    SETTINGS = {}
 
     def __init__(self, gandalf, *args, **kwargs):
         self.gandalf = gandalf
@@ -36,6 +37,7 @@ class Plugin(object):
         self.trigger_mappings = {
             trigger: callback for trigger, callback in self.generate_triggers()
         }
+        self.__dict__.update(self.SETTINGS)
         if self.NAME is None:
             raise ValueError(_("NAME cannot be None"))
         for name in dir(self):
@@ -70,6 +72,10 @@ class Plugin(object):
 
     def usage(self):
         return self.__usage__
+    
+    @property
+    def abstract(self):
+        return "{}{}\t:{}".format(GANDALF, self.NAME, type(self).__doc__)
 
     def __build_usage(self):
         usage = _(
